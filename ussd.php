@@ -22,38 +22,32 @@ else
       runAT($command);
   }
   else
-      error("Неверный формат команды.");
+      error("Incorrect format of command.");
 }
 
 exit;
 
 function help()
 {
-  echo "AT<команда>     Послать команду модему".PHP_EOL;
-  echo "*<команда>#     Послать USSD запрос".PHP_EOL;
-  
-  echo PHP_EOL;
-  echo "mts.by:".PHP_EOL;
-  echo "*100#           Баланс".PHP_EOL;
-  echo "*113*%сумма%#   Обещанный платёж, не более 10000. Задолженность < 5000".PHP_EOL;
-  echo "*111*31#        Просто обещанный платёж".PHP_EOL;
+  echo "AT<command>     Send AT command".PHP_EOL;
+  echo "*<command>#     Send USSD request".PHP_EOL;
 }
 
 function error($message)
 {
-  echo "Ошибка: ".$message.PHP_EOL;
+  echo "Error: ".$message.PHP_EOL;
 }
 
 function runAT($command)
 {
-  echo "AT-команда: ".$command.PHP_EOL;
+  echo "AT command: ".$command.PHP_EOL;
   $answer = sendTerminalCommand($command);
-  echo "Ответ: ".$answer.PHP_EOL;
+  echo "Answer: ".$answer.PHP_EOL;
 }
 
 function runUSSD($command)
 {
-  echo "USSD запрос: ".$command.PHP_EOL;
+  echo "USSD request: ".$command.PHP_EOL;
   
   $pdu = str2pdu($command);
   $command = "AT+CUSD=1,{$pdu},15";
@@ -86,7 +80,7 @@ function runUSSD($command)
     {
       $pduanswer = $m[1];
       $answer = pdu2str($pduanswer);
-      echo "Ответ: ".$answer.PHP_EOL; 
+      echo "Answer: ".$answer.PHP_EOL; 
     }
   }
 }
