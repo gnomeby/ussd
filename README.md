@@ -19,5 +19,5 @@ It should work by default. But you may try to change:
 * Constant ADDITIONAL_DEVICE
 
 Usage:  
-  AT<command>     Send AT command  
-  *<command>#     Send USSD request  
+  AT\<command\>     Send AT command  
+  *\<command\>#     Send USSD request  
