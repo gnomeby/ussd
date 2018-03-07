@@ -3,8 +3,6 @@ USSD tool
 
 This tool allows to send AT and USSD request to 3G modem.
 
-![gnomeby avatar](https://mail.niakhaichyk.org/lisa_small_32.png)
-
 Supported hardware:
 * Huawei E1550
 
